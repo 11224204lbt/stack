@@ -87,7 +87,7 @@ Node 類：
 
 
 ## 運行結果
-![01](https://github.com/Dopo2002/report/blob/main/code.jpg)
+![01](https://github.com/11224204lbt/stack/blob/main/code.png)
 
 ## 其他應用
 堆疊還有很多其他應用，比如在系統程式設計中，四則運算會利用堆疊來達成先乘除、後加減、括號優先處理的目的。
