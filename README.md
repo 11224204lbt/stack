@@ -34,127 +34,58 @@ Node 類：
 
     class Node(object):
     """
-    定義雙向鏈表的節點
+    定義單向鏈表節點
     """
     def __init__(self, item):
-        self.item = item  # 節點的值
-        self.next = None  # 指向下一個節點的指針
-        self.prior = None  # 指向前一個節點的指針
+        self.item = item
+        self.next = None
 
-
-    class FunctionLink(object):
+    class Stack(object):
     """
-    定義雙向鏈表的各種操作
+    用鏈表實作堆疊，支持 push, pop, peek, is_empty, size
     """
     def __init__(self):
-        self.linklength = 1  # 鏈表的長度
-        self.head = None  # 初始化，頭節點指向空
+        self.top = None  # 指向堆疊頂端節點
+        self.count = 0   # 堆疊大小
 
-    def creatLinkListHead(self, li):
-        """
-        以頭插法創建鏈表
-        :param li: 傳入一個列表
-        :return: 返回鏈表的頭節點
-        """
-        head = Node(li[0])
-        for element in li[1:]:
-            self.linklength += 1
-            node = Node(element)  # 創建一個新節點
-            node.next = head  # 新節點指向當前的頭節點
-            head.prior = node  # 當前頭節點的前指針指向新節點
-            head = node  # 更新頭節點
-        return head
+    def is_empty(self):
+        return self.top is None
 
-    def creatLinkListTail(self, li):
-        """
-        以尾插法創建鏈表
-        :param li: 傳入一個列表
-        :return: 返回鏈表的頭節點
-        """
-        head = Node(li[0])
-        current = head
-        for element in li[1:]:
-            self.linklength += 1
-            node = Node(element)  # 創建一個新節點
-            current.next = node  # 當前節點的下一個指針指向新節點
-            node.prior = current  # 新節點的前指針指向當前節點
-            current = node  # 更新當前節點
-        return head
+    def size(self):
+        return self.count
 
-    def printLinkList(self, lk):
-        """
-        打印鏈表中的所有節點值
-        :param lk: 傳入頭節點
-        :return: 無返回值
-        """
-        while lk:
-            if not lk.next:
-                print(lk.item)
-            else:
-                print(lk.item, end=", ")
-            lk = lk.next
+    def push(self, item):
+        node = Node(item)
+        node.next = self.top  # 新節點指向原頂端
+        self.top = node       # 頂端更新為新節點
+        self.count += 1
 
-    def inserLinkList(self, index, element, curNode):
-        """
-        在鏈表的指定位置插入一個新節點
-        :param index: 要插入的位置索引
-        :param element: 新節點的值
-        :param curNode: 頭節點
-        :return: 無返回值
-        """
-        head = curNode  # 保存頭節點
-        number = 1
-        if index > self.linklength:
-            raise Exception("對不起您輸入的索引值超過了鏈表的長度")
-        else:
-            while True:
-                if index == number:
-                    p = Node(element)  # 創建新節點
-                    p.next = curNode.next  # 新節點的下一個指針指向當前節點的下一個節點
-                    curNode.next.prior = p  # 當前節點的下一個節點的前指針指向新節點
-                    p.prior = curNode  # 新節點的前指針指向當前節點
-                    curNode.next = p  # 當前節點的下一個指針指向新節點
-                    self.linklength += 1
-                    curNode = head  # 恢復頭節點
-                    break
-                else:
-                    curNode = curNode.next
-                    number += 1
+    def pop(self):
+        if self.is_empty():
+            raise Exception("堆疊為空，無法pop")
+        item = self.top.item
+        self.top = self.top.next  # 頂端往下一個節點移動
+        self.count -= 1
+        return item
 
-    def deleteLinkList(self, index, curNode):
-        """
-        刪除鏈表中指定位置的節點
-        :param index: 要刪除的索引位置
-        :param curNode: 頭節點
-        :return: 無返回值
-        """
-        head = curNode  # 保存頭節點
-        number = 1
-        if index > self.linklength:
-            raise Exception("對不起，您輸入的索引位置超過了鏈表的長度，請重新輸入")
-        else:
-            while True:
-                if number == index:
-                    p = curNode.next  # 暫存待刪除節點
-                    curNode.next = p.next  # 當前節點的下一個指針指向待刪除節點的下一個節點
-                    if p.next:
-                        p.next.prior = curNode  # 待刪除節點的下一個節點的前指針指向當前節點
-                    self.linklength -= 1
-                    curNode = head  # 恢復頭節點
-                    break
-                else:
-                    curNode = curNode.next
-                    number += 1
+    def peek(self):
+        if self.is_empty():
+            raise Exception("堆疊為空，無法peek")
+        return self.top.item
 
+    if __name__ == '__main__':
+       stack = Stack()
+       stack.push(1)
+       stack.push(2)
+       stack.push(3)
+       print("堆疊大小:", stack.size())  # 3
+       print("堆疊頂端:", stack.peek())  # 3
+       print("pop:", stack.pop())        # 3
+       print("pop:", stack.pop())        # 2
+       print("堆疊頂端:", stack.peek())  # 1
+       print("堆疊大小:", stack.size())  # 1
+         
 
-          if __name__ == '__main__':
-            func = FunctionLink()
-            doublelk = func.creatLinkListHead([1, 2, 3, 4])
-            func.printLinkList(doublelk)
-            func.inserLinkList(2, 10, doublelk)
-            func.printLinkList(doublelk)
-            func.deleteLinkList(2, doublelk)
-            func.printLinkList(doublelk)
 
 ## 運行結果
 ![01](https://github.com/Dopo2002/report/blob/main/code.jpg)
