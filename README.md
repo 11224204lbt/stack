@@ -4,7 +4,7 @@
 ## 期中題目六: Stack的定義及其應用（python）
 
 ### stack簡述
-Stack作為線性數據結構中主要抽象數據類型之一，其特點就是“LIFO”（last in first out）即後進先出，這種特性我們一般稱為反轉次序
+Stack是一種資料結構，遵循著後進先出的原則，最晚放入堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出(FILO First-In-Last-Out)
 
 生活中的例子
 想像你在疊盤子：
@@ -20,20 +20,16 @@ Stack作為線性數據結構中主要抽象數據類型之一，其特點就是
 ## 代碼作用
 Node 類：
 
-__init__(self, item): 初始化一個節點，包含值 item 以及前後指針 next 和 prior。
+| 功能           | 用法說明         |
+| ------------ | ------------ |
+| `__init__`   | 建立空的棧，準備儲存資料 |
+| `push()`     | 新資料放進棧頂      |
+| `pop()`      | 把棧頂資料拿出來     |
+| `peek()`     | 查看棧頂資料，但不移除  |
+| `is_empty()` | 判斷棧是否為空      |
+| `size()`     | 回傳目前棧中資料數量   |
 
-FunctionLink 類：
-__init__(self): 初始化鏈表，包含鏈表長度 linklength 和頭節點 head。
 
-creatLinkListHead(self, li): 以頭插法創建鏈表。遍歷輸入的列表，創建新節點並插入到鏈表頭部。
-
-creatLinkListTail(self, li): 以尾插法創建鏈表。遍歷輸入的列表，創建新節點並插入到鏈表尾部。
-
-printLinkList(self, lk): 打印鏈表中的所有節點值。
-
-inserLinkList(self, index, element, curNode): 在鏈表的指定位置插入一個新節點。
-
-deleteLinkList(self, index, curNode): 刪除鏈表中指定位置的節點。
 ## 具體代碼
     class Node(object):
     """
@@ -161,3 +157,8 @@ deleteLinkList(self, index, curNode): 刪除鏈表中指定位置的節點。
 
 ## 運行結果
 ![01](https://github.com/Dopo2002/report/blob/main/code.jpg)
+
+## 其他應用
+堆疊還有很多其他應用，比如在系統程式設計中，四則運算會利用堆疊來達成先乘除、後加減、括號優先處理的目的。
+某些程式語言在呼叫函式時，可以傳入不定數量的參數，也和堆疊的運用有關。
+總的來說，在解決工程學問題時，堆疊是很常見的應用，但是大多數程式語言的函式庫都已經提供了現成工具，讓我們在開發商務軟體或系統時，能在不知不覺中使用堆疊，減少了直接碰觸堆疊的需要。
