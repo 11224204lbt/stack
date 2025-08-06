@@ -31,6 +31,7 @@ Node 類：
 
 
 ## 具體代碼
+
     class Node(object):
     """
     定義雙向鏈表的節點
