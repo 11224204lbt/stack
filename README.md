@@ -14,7 +14,7 @@ Stack作為線性數據結構中主要抽象數據類型之一，其特點就是
 現在你想拿盤子，只能從「最上面」拿（第 3 個盤子），因為下面的被壓住了。
 這就是 Stack 的行為。
 
-![01]((https://github.com/11224204lbt/stack/blob/281524b8df8b000d41132c2611f178c5d9bde274/Image%20.png )
+![01]((https://github.com/11224204lbt/stack/blob/d8c5439529cc61051a5be3fd3fd0c42c557e5b29/Image%20.png )
 ## 圖例說明
 ![02](https://github.com/Dopo2002/report/blob/main/pic1.png)
 ## 代碼作用
