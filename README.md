@@ -14,9 +14,8 @@ Stack是一種資料結構，遵循著後進先出的原則，最晚放入堆疊
 現在你想拿盤子，只能從「最上面」拿（第 3 個盤子），因為下面的被壓住了。
 這就是 Stack 的行為。
 
-![01](https://github.com/11224204lbt/stack/blob/main/Image%20.png)
 ## 圖例說明
-![01](https://github.com/Dopo2002/report/blob/main/pic1.png)
+![03](https://github.com/11224204lbt/stack/blob/main/1.png))
 ## 代碼作用
 Node 類：
 
