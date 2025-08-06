@@ -83,6 +83,8 @@ Node 類：
        print("pop:", stack.pop())        # 2
        print("堆疊頂端:", stack.peek())  # 1
        print("堆疊大小:", stack.size())  # 1
+
+### 中序表達式轉成後序表達式（逆波蘭表示法）       
          
 
 
