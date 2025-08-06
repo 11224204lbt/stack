@@ -1,0 +1,28 @@
+# 暑期資料結構期中報告  學號:11224204  學生:林柏廷
+
+
+## 期中題目六: 数据结构-Stack的定义及其应用（python）
+
+### 雙鍊錶簡述
+結構鍊錶（雙向鍊錶）是一種鍊式資料結構，它的每個節點都包含兩個指針，一個指向前一個節點，一個指向後一個節點。進行插入和刪除操作，因為每個節點都可以透過前向或後向指標存取其前驅和後繼。
+
+![01](https://github.com/Dopo2002/report/blob/main/pic2.png)
+## 圖例說明
+![01](https://github.com/Dopo2002/report/blob/main/pic1.png)
+## 代碼作用
+Node 類：
+
+__init__(self, item): 初始化一個節點，包含值 item 以及前後指針 next 和 prior。
+
+FunctionLink 類：
+__init__(self): 初始化鏈表，包含鏈表長度 linklength 和頭節點 head。
+
+creatLinkListHead(self, li): 以頭插法創建鏈表。遍歷輸入的列表，創建新節點並插入到鏈表頭部。
+
+creatLinkListTail(self, li): 以尾插法創建鏈表。遍歷輸入的列表，創建新節點並插入到鏈表尾部。
+
+printLinkList(self, lk): 打印鏈表中的所有節點值。
+
+inserLinkList(self, index, element, curNode): 在鏈表的指定位置插入一個新節點。
+
+deleteLinkList(self, index, curNode): 刪除鏈表中指定位置的節點。
